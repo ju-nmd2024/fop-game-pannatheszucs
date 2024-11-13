@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(500, 570);
 }
 
 function cat (x, y, s) {
@@ -63,17 +63,18 @@ function cat (x, y, s) {
   pop ();
   }
   
-  let z = 100;
-  let speed = 5;
+  let z = - 35;
+  let speed = 0;
   
   function draw () {
       background (240, 128, 128);
-      cat (290, z, 1);
-  
-      z = z + 0;
-  
-      if (z < 400) {
-          z = z + speed;
+      cat (250, z, 0.5);
+
+      z = z + speed;
+
+      if (keyIsDown(40)){
+        speed = 8;
+      } else {
+        speed = -5;
       }
-  
-  }
+      }
