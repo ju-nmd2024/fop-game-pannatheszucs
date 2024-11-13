@@ -63,7 +63,7 @@ function cat (x, y, s) {
   pop ();
   }
   
-  let z = - 35;
+  let z = 100;
   let speed = 0;
   
   function draw () {
@@ -72,9 +72,9 @@ function cat (x, y, s) {
 
       z = z + speed;
 
-      if (keyIsDown(40)){
-        speed = 8;
+      if (keyIsDown(38)){
+        speed = - 4;
       } else {
-        speed = -5;
+        speed = 8;
       }
       }
