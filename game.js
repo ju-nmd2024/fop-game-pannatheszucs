@@ -3,20 +3,16 @@ function setup() {
   background (240, 128, 128);
 }
 
-
 function sofa () {
+  background (240, 128, 128);
   push ();
-  strokeWeight (2);
+  strokeWeight (1);
   fill (205, 205, 150);
   rect (60, 430, 360, 150, 10);
   rect (60, 530, 360, 150, 10);
   rect (30, 480, 80, 100, 10);
   rect (370, 480, 80, 100, 10);
   pop();
-}
-
-function draw () {
-  sofa ();
 }
 
 function cat (x, y, s) {
@@ -82,9 +78,9 @@ function cat (x, y, s) {
   
   let z = 100;
   let speed = 0;
-  
+
 function draw () {
-  clear ();
+  sofa();
   cat (250, z, 0.5);
   z = z + speed;
 
