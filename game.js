@@ -46,12 +46,12 @@ stroke (0, 0, 0);
 strokeWeight (2);
 textSize (60);
 fill (0, 0, 0);
-text("YOU'VE LOST!", 50, 200);
+text("YOU LOST!", 80, 200);
 pop();
 fill (0, 0, 0);
 rect (148, 340, 200, 60, 40);
 rect (148, 420, 200, 60, 40);
-fill (255, 255, 255,);
+fill (255, 255, 255);
 textSize (20);
 text ("Play Again", 202, 375);
 textSize (20);
@@ -131,14 +131,71 @@ function cat (x, y, s) {
   pop ();
   }
 
-function draw () {
   sofa();
   cat (250, z, 0.5);
-  z = z + speed;
 
-  if (keyIsDown(38)){
-    speed = - 2;
-    } else {
-    speed = 10;
+function draw() {
+  clear();
+  if (gameScreen === "Start") {
+    startScreen();
+  } else if (gameState === "Game") {
+    background (238, 232, 170);
+    sofa();
+    cat (250, z, 0.5);
+  } else if (gameScreen === "Lost") {
+    lostScreen();
+  } else if (gameScreen === "Win") {
+    winScreen();
+  }
+
+    if (gameScreen === "Start") {
+    if (mouseIsPressed) {
+      if (mouseX >= 150 && mouseX <= 350 && mouseY <= 300 && mouseY >= 361) {
+        gameScreen = "Game";
+      }
+    }
+  }
+    
+  if (gameScreen === "Lost") {
+    if (mouseIsPressed) {
+      if (mouseX >= 147 && mouseX <= 348 && mouseY <= 342 && mouseY >= 400) {
+        gameScreen = "Game";
+      } else if (mouseX >= 147 && mouseX <= 348 && mouseY <= 422 && mouseY >= 480) {
+        gameScreen = "Start";
+      }
+      }
+  }
+  if (gameScreen === "Win") {
+    if (mouseIsPressed) {
+      if (mouseX > 225 && mouseX < 425 && mouseY > 470 && mouseY < 530) {
+        gameScreen = "Game";
+      } else if (mouseX > 225 && mouseX < 425 && mouseY > 570 && mouseY < 630) {
+        gameScreen = "Start";
+      }
+    }
+  }
+  
+  if (gameScreen === "Game") {
+    velocity += 2;
+    acceleration += 0.01;
+    if (keyIsDown(32)) {
+      velocity -= 3;
+    }
+
+    z += velocity;
+    velocity += acceleration;
+    if (z > 800) {
+      if (velocity > 13) {
+        gameScreen = "Lost";
+        z = 80;
+        velocity = 0.1;
+        acceleration = 0;
+        } else if (velocity < 13) {
+        gameScreen = "Win";
+        z = 80;
+        velocity = 0.1;
+        acceleration = 0;
+        }
+      }
     }
   }
