@@ -1,10 +1,65 @@
 function setup() {
   createCanvas(500, 570);
-  background (240, 128, 128);
+  background (238, 232, 170);
+}
+
+let z = 100;
+let speed = 0;
+let velocity = 0.1;
+let acceleration = 0;
+let gameScreen = "Start";
+
+function startScreen() {
+  background (173, 216, 230);
+  textSize (60);
+  text ("Cat Lander", 100, 120);
+  push();
+  fill (0, 0, 0);
+  rect (150, 300, 200, 60, 40);
+  textSize (35);
+  fill (255, 255, 255);
+  text ("START", 195, 345);
+  pop();
+}
+function winScreen() {
+  background (46, 139, 87);
+  push();
+  stroke (255, 255, 255);
+  strokeWeight (2);
+  textSize (60);
+  fill (255, 255, 255);
+  text ("YOU WON!", 90, 200);
+  pop();
+  fill (0, 0, 0);
+  rect (148, 340, 200, 60, 40);
+  rect (148, 420, 200, 60, 40);
+  fill (255, 255, 255);
+  textSize (20);
+  text ("Play Again", 202, 375);
+  textSize (20);
+  text ("Menu", 220, 455);
+}
+function lostScreen() {
+background (220, 20, 60);
+push ();
+stroke (0, 0, 0);
+strokeWeight (2);
+textSize (60);
+fill (0, 0, 0);
+text("YOU'VE LOST!", 50, 200);
+pop();
+fill (0, 0, 0);
+rect (148, 340, 200, 60, 40);
+rect (148, 420, 200, 60, 40);
+fill (255, 255, 255,);
+textSize (20);
+text ("Play Again", 202, 375);
+textSize (20);
+text ("Menu", 220, 455);
 }
 
 function sofa () {
-  background (240, 128, 128);
+  background (238, 232, 170);
   push ();
   strokeWeight (1);
   fill (205, 205, 150);
@@ -75,9 +130,6 @@ function cat (x, y, s) {
   ellipse (x - 10 * s, y - 150 * s, 10 * s, 10 * s);
   pop ();
   }
-  
-  let z = 100;
-  let speed = 0;
 
 function draw () {
   sofa();
@@ -85,8 +137,8 @@ function draw () {
   z = z + speed;
 
   if (keyIsDown(38)){
-    speed = - 4;
+    speed = - 2;
     } else {
-    speed = 8;
+    speed = 10;
     }
   }
