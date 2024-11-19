@@ -1,9 +1,11 @@
+//Ladieees and gentleeeman! MY GAME FINALLY WORKS!
+
 function setup() {
   createCanvas(500, 570);
   background (238, 232, 170);
 }
 
-let z = 100;
+let catY = 100;
 let speed = 0;
 let velocity = 0.1;
 let acceleration = 0;
@@ -132,16 +134,16 @@ function cat (x, y, s) {
   }
 
   sofa();
-  cat (250, z, 0.5);
+  cat (250, catY, 0.5);
 
 function draw() {
   clear();
   if (gameScreen === "Start") {
     startScreen();
-  } else if (gameState === "Game") {
+  } else if (gameScreen === "Game") {
     background (238, 232, 170);
     sofa();
-    cat (250, z, 0.5);
+    cat (250, catY, 0.5);
   } else if (gameScreen === "Lost") {
     lostScreen();
   } else if (gameScreen === "Win") {
@@ -150,7 +152,7 @@ function draw() {
 
     if (gameScreen === "Start") {
     if (mouseIsPressed) {
-      if (mouseX >= 150 && mouseX <= 350 && mouseY <= 300 && mouseY >= 361) {
+      if (mouseX >= 150 && mouseX <= 350 && mouseY >= 300 && mouseY <= 360) {
         gameScreen = "Game";
       }
     }
@@ -158,18 +160,19 @@ function draw() {
     
   if (gameScreen === "Lost") {
     if (mouseIsPressed) {
-      if (mouseX >= 147 && mouseX <= 348 && mouseY <= 342 && mouseY >= 400) {
+      if (mouseX >= 147 && mouseX <= 348 && mouseY >= 342 && mouseY <= 400) {
         gameScreen = "Game";
-      } else if (mouseX >= 147 && mouseX <= 348 && mouseY <= 422 && mouseY >= 480) {
+      } else if (mouseX >= 147 && mouseX <= 348 && mouseY >= 422 && mouseY <= 480) {
         gameScreen = "Start";
       }
       }
+
   }
   if (gameScreen === "Win") {
     if (mouseIsPressed) {
-      if (mouseX > 225 && mouseX < 425 && mouseY > 470 && mouseY < 530) {
+      if (mouseX >= 225 && mouseX <= 425 && mouseY >= 340 && mouseY <= 400) {
         gameScreen = "Game";
-      } else if (mouseX > 225 && mouseX < 425 && mouseY > 570 && mouseY < 630) {
+      } else if (mouseX >= 225 && mouseX <= 425 && mouseY >= 570 && mouseY <= 630) {
         gameScreen = "Start";
       }
     }
@@ -182,17 +185,17 @@ function draw() {
       velocity -= 3;
     }
 
-    z += velocity;
+    catY += velocity;
     velocity += acceleration;
-    if (z > 800) {
+    if (catY > 530) {
       if (velocity > 13) {
         gameScreen = "Lost";
-        z = 80;
+        catY = 80;
         velocity = 0.1;
         acceleration = 0;
         } else if (velocity < 13) {
         gameScreen = "Win";
-        z = 80;
+        catY = 80;
         velocity = 0.1;
         acceleration = 0;
         }
