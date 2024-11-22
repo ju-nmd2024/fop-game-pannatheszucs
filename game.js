@@ -172,7 +172,7 @@ function draw() {
     if (mouseIsPressed) {
       if (mouseX >= 225 && mouseX <= 425 && mouseY >= 340 && mouseY <= 400) {
         gameScreen = "Game";
-      } else if (mouseX >= 225 && mouseX <= 425 && mouseY >= 570 && mouseY <= 630) {
+      } else if (mouseX >= 225 && mouseX <= 425 && mouseY >= 422 && mouseY <= 480) {
         gameScreen = "Start";
       }
     }
