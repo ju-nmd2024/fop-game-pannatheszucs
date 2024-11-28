@@ -5,7 +5,7 @@ function setup() {
   background (238, 232, 170);
 }
 
-let catY = 500;
+let catY = 100;
 let speed = 0;
 let velocity = 0.1;
 let acceleration = 0;
